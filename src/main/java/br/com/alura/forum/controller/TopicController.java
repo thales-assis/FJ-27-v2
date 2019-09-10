@@ -73,7 +73,7 @@ public class TopicController {
     		
     }
     
-	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<TopicOutputDto> createTopic(@Valid @RequestBody NewTopicInputDto newTopicDto, @AuthenticationPrincipal User loggedUser, UriComponentsBuilder uriBuilder) {
 		Topic topic = newTopicDto.build(loggedUser, this.courseRepository);
 		this.topicRepository.save(topic);

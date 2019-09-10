@@ -56,7 +56,16 @@ public class SwaggerConfiguration {
 						.modelRef(new ModelRef("string"))
 						.parameterType("header")
 						.required(false)
-						.build()));                                           
+						.build(), 
+					new ParameterBuilder()
+						.name("Accept-Language")
+						.description("Header para facilitar a seleção do idioma de mensagens.")
+						.modelRef(new ModelRef("string"))
+						.parameterType("header")
+						.required(false)
+						.build()
+					)
+				);                                           
     }
 	
 	private ApiInfo apiInfo() {
