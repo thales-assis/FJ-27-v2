@@ -9,6 +9,7 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import br.com.alura.forum.model.Category;
+import br.com.alura.forum.model.User;
 import br.com.alura.forum.model.topic.domain.Topic;
 
 public interface TopicRepository extends Repository<Topic, Long>, JpaSpecificationExecutor<Topic> {
@@ -18,6 +19,7 @@ public interface TopicRepository extends Repository<Topic, Long>, JpaSpecificati
 
 	List<Topic> findAll();
 	
+	List<Topic> findByOwnerAndCreationInstantAfterOrderByCreationInstantAsc(User loggedUser, Instant oneHourAgo);
 	
 	@Query("SELECT count(topic) FROM Topic topic "
 			+ "JOIN topic.course course "
